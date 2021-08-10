@@ -1,0 +1,10 @@
+.random-person__title {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.random-person__term {
+    display: inline-block;
+    width: 65px;
+}

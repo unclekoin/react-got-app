@@ -1,0 +1,8 @@
+.app {
+    height: 100vh;
+}
+
+.app__wrapper {
+    display: flex;
+    padding: 30px 15px;
+}
