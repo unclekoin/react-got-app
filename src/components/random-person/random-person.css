@@ -1,10 +1,24 @@
 .random-person__title {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
+.random-person__title span {
+    color: #e84118;
+}
+
+.random-person__item {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #353b48;
+}
+
+.random-person__item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
 .random-person__term {
     display: inline-block;
-    width: 65px;
+    width: 75px;
 }
+

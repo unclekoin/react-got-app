@@ -1,18 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from '../header';
 import './app.css';
 import RandomPerson from '../random-person';
+import Button from '../button';
 
-const App = () => {
+export default class App extends Component {
 
-  return (
-    <div className="app">
-      <Header />
-      <div className="app__wrapper">
-        <RandomPerson/>
+  state = {
+    visible: true
+  };
+
+  buttonHandler = () => {
+    this.setState({
+      visible: !this.state.visible
+    });
+  };
+
+  render() {
+    const { visible } = this.state;
+
+    return (
+      <div className="app">
+        <Header/>
+        <div className="app__wrapper">
+          { visible ? <RandomPerson/> : null }
+          <Button onClick={ this.buttonHandler }>Toggle Random Character</Button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
-
-export default App;

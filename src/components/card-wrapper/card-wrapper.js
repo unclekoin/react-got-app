@@ -1,9 +1,9 @@
 import React from 'react';
-import './card-wrapper.css'
+import './card-wrapper.css';
 
 const CardWrapper = ({ children }) => {
   return (
-    <div className='card-wrapper'>
+    <div className="card-wrapper">
       { children }
     </div>
   );

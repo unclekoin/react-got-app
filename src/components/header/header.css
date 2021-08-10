@@ -10,13 +10,24 @@
 }
 
 .header__title {
-    font-size: 18px;
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 .header__list {
     display: flex;
     align-items: center;
+}
+
+.header__item a {
+    font-weight: 700;
+    transition: all 0.3s linear;
+}
+
+.header__item a:hover {
+    display: inline-block;
+    color: #e84118;
+    transform: translateY(-2px);
 }
 
 .header__item:not(:last-child) {
