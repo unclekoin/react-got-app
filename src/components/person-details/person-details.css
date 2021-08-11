@@ -1,0 +1,24 @@
+.person-details__title {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.person-details__title span {
+    color: #e84118;
+}
+
+.person-details__item {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #353b48;
+}
+
+.person-details__item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.person-details__term {
+    display: inline-block;
+    width: 75px;
+}
+

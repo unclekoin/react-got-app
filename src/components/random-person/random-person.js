@@ -7,20 +7,22 @@ import Error from '../error';
 
 export default class RandomPerson extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.updateCharacter();
-  }
-
   service = new APIService('https://www.anapioficeandfire.com/api');
-
 
   state = {
     character: {},
     loading: true,
     error: false
   };
+
+  componentDidMount() {
+    this.updateCharacter();
+    this.timerId = setInterval(this.updateCharacter, 5000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerId);
+  }
 
   onCharacterLoaded = (character) => {
     this.setState({
@@ -36,7 +38,7 @@ export default class RandomPerson extends Component {
     });
   };
 
-  updateCharacter() {
+  updateCharacter = () => {
     const id = Math.floor(Math.random() * 140 + 25);
     this.service.getCharacter(id)
       .then(this.onCharacterLoaded)

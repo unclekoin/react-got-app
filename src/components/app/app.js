@@ -3,28 +3,42 @@ import Header from '../header';
 import './app.css';
 import RandomPerson from '../random-person';
 import Button from '../button';
+import Error from '../error';
+import PersonPage from '../person-page';
 
 export default class App extends Component {
 
   state = {
-    visible: true
+    visible: true,
+    error: false
   };
 
-  buttonHandler = () => {
-    this.setState({
-      visible: !this.state.visible
-    });
+  componentDidCatch(error, errorInfo) {
+    console.log('ERROR:', error, 'info', errorInfo);
+    console.log('INFO:', errorInfo);
+    this.setState({ error: true });
+  }
+
+  toggleComponent = () => {
+    this.setState((state) => ({
+      visible: !state.visible
+    }));
   };
 
   render() {
-    const { visible } = this.state;
+    const { visible, error } = this.state;
+
+    if (error) return <Error/>;
 
     return (
       <div className="app">
         <Header/>
         <div className="app__wrapper">
           { visible ? <RandomPerson/> : null }
-          <Button onClick={ this.buttonHandler }>Toggle Random Character</Button>
+          <Button onToggleComponent={ this.toggleComponent }>
+            { visible ? 'Remove Random Character' : 'Show Random Character' }
+          </Button>
+          <PersonPage/>
         </div>
       </div>
     );

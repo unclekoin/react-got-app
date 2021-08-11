@@ -1,0 +1,11 @@
+.persons-list__item {
+    padding: 5px 0;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #353b48;
+    cursor: pointer;
+    transition: color 0.3s linear;
+}
+
+.persons-list__item:hover {
+    color: #e84118;
+}
