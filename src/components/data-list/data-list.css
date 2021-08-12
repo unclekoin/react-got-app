@@ -1,4 +1,4 @@
-.persons-list__item {
+.data-list__item {
     padding: 5px 0;
     letter-spacing: 1px;
     border-bottom: 1px solid #353b48;
@@ -6,6 +6,6 @@
     transition: color 0.3s linear;
 }
 
-.persons-list__item:hover {
+.data-list__item:hover {
     color: #e84118;
 }

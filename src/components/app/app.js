@@ -4,7 +4,9 @@ import './app.css';
 import RandomPerson from '../random-person';
 import Button from '../button';
 import Error from '../error';
-import PersonPage from '../person-page';
+import PersonsPage from '../person-page';
+import HousesPage from '../house-page';
+import BooksPage from '../book-page';
 
 export default class App extends Component {
 
@@ -38,7 +40,9 @@ export default class App extends Component {
           <Button onToggleComponent={ this.toggleComponent }>
             { visible ? 'Remove Random Character' : 'Show Random Character' }
           </Button>
-          <PersonPage/>
+          <PersonsPage/>
+          <HousesPage/>
+          <BooksPage/>
         </div>
       </div>
     );

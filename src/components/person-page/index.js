@@ -1,3 +1,3 @@
-import PersonPage from './person-page';
+import PersonsPage from './persons-page';
 
-export default PersonPage;
+export default PersonsPage;

@@ -5,7 +5,7 @@ export default class APIService {
     this.#url = url;
   }
 
-  async getResource(path) {
+  getResource = async (path) => {
     const res = await fetch(`${ this.#url }${ path }`);
 
     if (!res.ok) {
@@ -15,38 +15,39 @@ export default class APIService {
     return await res.json();
   };
 
-  async getAllBooks() {
+  getAllBooks = async () => {
     const result = await this.getResource(`/books/`);
     return result.map(this._transformBook);
   }
 
-  async getBook(id) {
+  getBook = async (id) => {
     const result = await this.getResource(`/books/${ id }/`);
     return this._transformBook(result);
   }
 
-  async getAllCharacters() {
-    const result = await this.getResource(`/characters?page=5&pageSize=10`);
+  getAllCharacters = async () => {
+    const result = await this.getResource(`/characters/?page=5&pageSize=10`);
     return result.map(this._transformCharacter);
   }
 
-  async getCharacter(id) {
+  getCharacter = async (id) => {
     const result = await this.getResource(`/characters/${ id }`);
     return this._transformCharacter(result);
   }
 
-  async getAllHouses() {
+  getAllHouses = async () => {
     const result = await this.getResource(`/houses/`);
-    return result.map(this.getAllHouses);
+    return result.map(this._transformHouse);
   }
 
-  async getHouse(id) {
+  getHouse = async (id) => {
     const result = await this.getResource(`/houses/${ id }/`);
     return this._transformHouse(result);
   }
 
-  _transformCharacter(data) {
+  _transformCharacter = (data) => {
     return {
+      id: String(data.url.split('/')[data.url.split('/').length - 1]),
       name: data.name,
       gender: data.gender,
       born: data.born,
@@ -55,8 +56,9 @@ export default class APIService {
     };
   }
 
-  _transformHouse(data) {
+  _transformHouse = (data) => {
     return {
+      id: String(data.url.split('/')[data.url.split('/').length - 1]),
       name: data.name,
       region: data.region,
       words: data.words,
@@ -66,8 +68,9 @@ export default class APIService {
     };
   }
 
-  _transformBook(data) {
+  _transformBook = (data) => {
     return {
+      id: String(data.url.split('/')[data.url.split('/').length - 1]),
       name: data.name,
       numberOfPages: data.numberOfPages,
       publisher: data.publisher,

@@ -1,24 +1,28 @@
-.person-details__title {
+.item-details__title {
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-.person-details__title span {
+.item-details__title span {
     color: #e84118;
 }
 
-.person-details__item {
+.item-details__item {
+    display: flex;
+    justify-content: space-between;
     padding-bottom: 10px;
     border-bottom: 1px solid #353b48;
 }
 
-.person-details__item:not(:last-child) {
+
+.item-details__item:not(:last-child) {
     margin-bottom: 10px;
 }
 
-.person-details__term {
+.item-details__term {
     display: inline-block;
     width: 75px;
+    margin-right: 10px;
 }
 
