@@ -41,7 +41,7 @@ export default class ItemDetails extends Component {
       return (
         <li key={item}  className="item-details__item">
           <span className="item-details__term">{ item[0].toUpperCase() + item.slice(1) }:</span>
-          <span>{ data[item] && (typeof data[item] === 'string') ? data[item] : 'no data available' }</span>
+          <span>{ data[item] && (typeof data[item] !== 'object') ? data[item] : 'no data available' }</span>
         </li>
       )
     })

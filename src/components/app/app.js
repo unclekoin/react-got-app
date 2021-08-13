@@ -4,9 +4,8 @@ import './app.css';
 import RandomPerson from '../random-person';
 import Button from '../button';
 import Error from '../error';
-import PersonsPage from '../person-page';
-import HousesPage from '../house-page';
-import BooksPage from '../book-page';
+import { PersonsPage, HousesPage, BooksPage, BookPage } from '../pages';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 export default class App extends Component {
 
@@ -33,18 +32,25 @@ export default class App extends Component {
     if (error) return <Error/>;
 
     return (
-      <div className="app">
-        <Header/>
-        <div className="app__wrapper">
-          { visible ? <RandomPerson/> : null }
-          <Button onToggleComponent={ this.toggleComponent }>
-            { visible ? 'Remove Random Character' : 'Show Random Character' }
-          </Button>
-          <PersonsPage/>
-          <HousesPage/>
-          <BooksPage/>
+      <BrowserRouter>
+        <div className="app">
+          <Header/>
+          <div className="app__wrapper">
+            { visible ? <RandomPerson/> : null }
+            <Button onToggleComponent={ this.toggleComponent }>
+              { visible ? 'Remove Random Character' : 'Show Random Character' }
+            </Button>
+
+            <Route path="/characters" component={ PersonsPage }/>
+            <Route path="/houses" component={ HousesPage }/>
+            <Route path="/books" exact component={ BooksPage }/>
+            <Route path="/books/:id" render={ ({ match }) => {
+              const { id } = match.params;
+              return <BookPage bookId={ id }/>;
+            } }/>
+          </div>
         </div>
-      </div>
+      </BrowserRouter>
     );
   }
 };
