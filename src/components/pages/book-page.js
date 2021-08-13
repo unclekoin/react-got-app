@@ -4,7 +4,7 @@ import ItemDetails from '../item-details';
 
 export default class BookPage extends Component {
 
-  service = new APIService('https://www.anapioficeandfire.com/api');
+  service = new APIService();
 
   render() {
 

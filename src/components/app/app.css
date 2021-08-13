@@ -8,3 +8,7 @@
     flex-direction: column;
     padding: 30px 15px;
 }
+
+.app__title {
+    margin-bottom: 30px;
+}

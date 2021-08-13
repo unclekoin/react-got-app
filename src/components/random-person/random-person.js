@@ -17,7 +17,7 @@ export default class RandomPerson extends Component {
 
   componentDidMount() {
     this.updateCharacter();
-    this.timerId = setInterval(this.updateCharacter, 5000);
+    this.timerId = setInterval(this.updateCharacter, 10000);
   }
 
   componentWillUnmount() {

@@ -8,7 +8,7 @@ import Row from '../row';
 
 export default class PersonsPage extends Component {
 
-  service = new APIService('https://www.anapioficeandfire.com/api');
+  service = new APIService();
 
   state = {
     selectedId: 130,

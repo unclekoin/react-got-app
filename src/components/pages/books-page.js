@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 
 class BooksPage extends Component {
 
-  service = new APIService('https://www.anapioficeandfire.com/api');
+  service = new APIService();
 
   state = {
     error: false
@@ -25,7 +25,7 @@ class BooksPage extends Component {
     if (error) return <CardWrapper><Error/></CardWrapper>;
 
     return (
-      <Row>
+      <Row size="full">
         <DataList
           onItemSelected={ (id) => {
             this.props.history.push(id);

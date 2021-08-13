@@ -1,8 +1,8 @@
 export default class APIService {
   #url;
 
-  constructor(url) {
-    this.#url = url;
+  constructor() {
+    this.#url = 'https://www.anapioficeandfire.com/api';
   }
 
   getResource = async (path) => {

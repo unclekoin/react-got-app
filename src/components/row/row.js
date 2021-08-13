@@ -1,9 +1,10 @@
 import React from 'react';
 import './row.css';
 
-const Row = ({ children }) => {
+const Row = ({ children, size }) => {
+  const cls = size ? `row ${size}` : 'row';
   return (
-    <div className="row">
+    <div className={cls}>
       { children }
     </div>
   );

@@ -36,6 +36,7 @@ export default class App extends Component {
         <div className="app">
           <Header/>
           <div className="app__wrapper">
+            <h2 className='app__title'>All the data from the universe of Ice And Fire you've ever wanted!</h2>
             { visible ? <RandomPerson/> : null }
             <Button onToggleComponent={ this.toggleComponent }>
               { visible ? 'Remove Random Character' : 'Show Random Character' }
